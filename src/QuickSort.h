@@ -1,6 +1,6 @@
 #ifndef QuickSort_H
 #define QuickSort_H
 
-void swamp(int index1, int index2, int *array);
-void quickSort(int firstIndex, int lastIndex, int *array);
+void swap(int index1, int index2, int *array); // int array []  also can
+void quickSort(int first, int last, int *array);
 #endif // QuickSort_H

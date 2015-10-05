@@ -20,7 +20,7 @@
  *         array      - The array contained the two elements want to be interchanged.
  * retval@ None
  */
-void swamp(int index1, int index2, int *array)
+void swap(int index1, int index2, int *array)
 {
   int temp;
   temp = array[index1];
@@ -28,9 +28,40 @@ void swamp(int index1, int index2, int *array)
   array[index2] = temp;
 }
 
-
-void quickSort(int leftIndex, int rightIndex, int *array)
+void quickSort(int first, int last, int *array)
 {
+  int temp, pivot, i, j; // i might not be used
+  
+  if(first < last)
+  {
+    pivot = first;
+    i = first; //X i 
+    j = last;
+    
+    while(i<j)
+    {
+      while(array[j]>array[pivot]  && j>i && j>first)
+        j--;
+      
+      if(j>i)
+      {
+        swap(pivot, j , array);
+        pivot = j;
+      }
+      
+      while(array[i]<=array[pivot]  && j>i && i<last)
+        i++;
+      
+      if(j>i)
+      {
+        swap(i, pivot , array);
+        pivot = i;
+      }
+    }
+    
+    quickSort(first, i-1, array);
+    quickSort(pivot+1, last, array);
+  }
   
 }
 
