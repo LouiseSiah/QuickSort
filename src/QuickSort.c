@@ -15,8 +15,8 @@
 
 /*
  * brief @ Interchange the position of two elements in an array.
- * param @ index1     - The index of first element.
- *         index2     - The index of second element.
+ * param @ index1     - The index of element that swap with index2 element.
+ *         index2     - The index of element that swap with index1 element.
  *         array      - The array contained the two elements want to be interchanged.
  * retval@ None
  */
@@ -28,14 +28,21 @@ void swap(int index1, int index2, int *array)
   array[index2] = temp;
 }
 
+/*
+ * brief @ Sort the elements in array in ascending sequence.
+ * param @ first     - The index of first element.
+ *         last      - The index of last element.
+ *         array     - The array contained the elements want to be sorting in ascending sequence.
+ * retval@ None
+ */
 void quickSort(int first, int last, int *array)
 {
-  int temp, pivot, i, j; // i might not be used
+  int temp, pivot, i, j;
   
   if(first < last)
   {
     pivot = first;
-    i = first; //X i 
+    i = first;
     j = last;
     
     while(i<j)
@@ -59,7 +66,7 @@ void quickSort(int first, int last, int *array)
       }
     }
     
-    quickSort(first, i-1, array);
+    quickSort(first, pivot-1, array);
     quickSort(pivot+1, last, array);
   }
   
