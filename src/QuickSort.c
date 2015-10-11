@@ -14,11 +14,11 @@
 #include <stdio.h>
 
 /*
- * brief @ Interchange the position of two elements in an array.
- * param @ index1     - The index of element that swap with index2 element.
- *         index2     - The index of element that swap with index1 element.
- *         array      - The array contained the two elements want to be interchanged.
- * retval@ None
+ * @brief Interchange the position of two elements in an array.
+ * @param  index1   - The index of element that swap with index2 element.
+ * @param  index2   - The index of element that swap with index1 element.
+ * @param  array    - The array contained the two elements want to be interchanged.
+ * @retval None
  */
 void swap(int index1, int index2, int *array)
 {
@@ -29,15 +29,18 @@ void swap(int index1, int index2, int *array)
 }
 
 /*
- * brief @ Sort the elements in array in ascending sequence.
- * param @ first     - The index of first element.
- *         last      - The index of last element.
- *         array     - The array contained the elements want to be sorting in ascending sequence.
- * retval@ None
+ * @brief   Sort the elements in array in ascending sequence.
+ * @param   first   - The index of first element.
+ * @param   last    - The index of last element.
+ * @param   array   - The array contained the elements want to be sorting in ascending sequence.
+ * @retval  None
  */
 void quickSort(int first, int last, int *array)
 {
   int temp, pivot, i, j;
+  
+  if(first >= last)
+    return;
   
   if(first < last)
   {
@@ -47,19 +50,19 @@ void quickSort(int first, int last, int *array)
     
     while(i<j)
     {
-      while(array[j]>array[pivot]  && j>i && j>first)
+      while(array[j] > array[pivot]  && j > i && j > first)
         j--;
       
-      if(j>i)
+      if(j > i)
       {
         swap(pivot, j , array);
         pivot = j;
       }
       
-      while(array[i]<=array[pivot]  && j>i && i<last)
+      while(array[i] <= array[pivot]  && j > i && i < last)
         i++;
       
-      if(j>i)
+      if(j > i)
       {
         swap(i, pivot , array);
         pivot = i;
